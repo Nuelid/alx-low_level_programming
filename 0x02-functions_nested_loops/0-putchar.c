@@ -1,7 +1,8 @@
 #include "main.h"
 
+
 /**
- * main - Entry
+ * main - Entry point
  *
  * Return: nothing, return void
  */
@@ -10,7 +11,7 @@ int main(void)
 {
 _putchar('_');
 _putchar('p');
-_putcher('u');
+_putchar('u');
 _putchar('t');
 _putchar('c');
 _putchar('h');
@@ -20,4 +21,3 @@ _putchar('\n');
 
 return (0);
 }
-
