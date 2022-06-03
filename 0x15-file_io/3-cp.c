@@ -94,4 +94,28 @@ int main(int argc, char **argv)
 	do {
 		b_read = read(file_from, buffer, 1024);
 		if (b_read < 0)
+		{
+			read_error(argv[1]);
+			close_file(file_from);
+			close_file(file_to);
+			exit(98);
+		}
+		b_write = write(file_to, buffer, b_read);
+		if (b_write < 0)
+		{
+			write_error(argv[2]);
+			close_file(file_from);
+			close_file(file_to);
+			exit(99);
+		}
+	} while (b_read >= 1024);
 
+	if (close_file(file_from) < 0)
+		exit(100);
+	if (close_file(file_to) < 0)
+	{
+		close_file(file_from);
+		exit(100);
+	}
+	return (0);
+}
